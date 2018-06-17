@@ -6,7 +6,11 @@
     "start": "NODE_ENV=production node index.js",
     "dev": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production --config webpack.config.prod.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "rm -rf coverage; jest --coverage --config=jest.config.json",
+    "test:watch": "jest --watch --coverage --config=jest.config.json",
+    "lint": "eslint src",
+    "nuke": "rm -rf node_modules && npm run clean",
+    "precommit": "yarn run lint && yarn run test",
     "docker-build": "docker build -t app-ui .",
     "docker-start": "docker run -it -p 8080:8080 --name app-ui"
   },
@@ -31,7 +35,15 @@
     "extends": [
       "standard",
       "standard-react"
-    ]
+    ],
+    "rules": {
+      "space-before-function-paren": [2, {
+        "anonymous": "always",
+        "named": "ignore",
+        "asyncArrow": "always"
+      }]
+    },
+    "env": { "jest": true }
   },
   "eslintIgnore": [
     "dist"
@@ -69,6 +81,7 @@
     "husky": "^0.14.3",
     "jest": "^23.1.0",
     "mini-css-extract-plugin": "^0.4.0",
+    "raf": "^3.4.0",
     "style-loader": "^0.21.0",
     "webpack": "^4.12.0",
     "webpack-cli": "^3.0.8",
