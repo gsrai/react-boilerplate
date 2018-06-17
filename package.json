@@ -11,8 +11,8 @@
     "lint": "eslint src",
     "nuke": "rm -rf node_modules && npm run clean",
     "precommit": "yarn run lint && yarn run test",
-    "docker-build": "docker build -t app-ui .",
-    "docker-start": "docker run -it -p 8080:8080 --name app-ui"
+    "docker:build": "docker build -t app-ui .",
+    "docker:start": "docker run -it -p 8080:8080 --name app-ui"
   },
   "repository": {
     "type": "git",
