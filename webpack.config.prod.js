@@ -4,13 +4,9 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
+// Production webpack configuration
 const webpackConfig = {
   entry: './src/entry/index.js',
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './dist',
-    hot: true
-  },
   module: {
     rules: [
       {
@@ -29,7 +25,7 @@ const webpackConfig = {
       },
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+        use: [ MiniCssExtractPlugin.loader, 'css-loader' ]
       }
     ]
   },
@@ -40,11 +36,9 @@ const webpackConfig = {
       filename: './index.html'
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename:'[id].css',
-    }),
-    new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+      filename: '[name].[hash].css',
+      chunkFilename: '[id].[hash].css',
+    })
   ]
 }
 
