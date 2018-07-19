@@ -4,6 +4,9 @@ exports[`Component Rendering component should render correctly 1`] = `
 <div
   id="application-root"
 >
-  Hello Redux
+  <h1>
+    Using React 
+    16.4.1
+  </h1>
 </div>
 `;

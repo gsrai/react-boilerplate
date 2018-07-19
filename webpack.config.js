@@ -1,15 +1,26 @@
 const path = require('path')
-const webpack = require('webpack');
+const webpack = require('webpack')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
+const DIST = path.resolve(__dirname, 'dist')
+const ENTRY = path.resolve(__dirname, './src/entry/index.js')
+
 const webpackConfig = {
-  entry: './src/entry/index.js',
+  mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './dist',
-    hot: true
+    contentBase: DIST,
+    compress: true,
+    overlay: true,
+    hot: true,
+    stats: 'errors-only',
+    host: '0.0.0.0'
+  },
+  entry: ENTRY,
+  output: {
+    path: DIST,
+    filename: '[name].bundle.js'
   },
   module: {
     rules: [
@@ -19,29 +30,49 @@ const webpackConfig = {
         loader: 'babel-loader'
       },
       {
-        test: /\.html$/,
+        test: /\.css$/,
         use: [
           {
-            loader: 'html-loader',
-            options: { minimize: true }
+            loader: 'style-loader',
+            options: { sourceMap: true }
+          },
+          {
+            loader: 'css-loader',
+            options: { sourceMap: true }
           }
         ]
       },
       {
-        test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/images'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/fonts'
+            }
+          }
+        ]
       }
     ]
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebPackPlugin({
-      template: './src/entry/index.html',
-      filename: './index.html'
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename:'[id].css',
+      template: path.resolve(__dirname, './src/entry/index.html'),
+      filename: path.resolve(__dirname, './dist/index.html')
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()

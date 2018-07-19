@@ -7,6 +7,7 @@ WORKDIR /app
 COPY package.json .
 COPY yarn.lock .
 COPY index.js .
+COPY .npmrc .
 COPY dist ./dist
 
 RUN yarn install
