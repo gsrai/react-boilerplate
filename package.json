@@ -4,7 +4,7 @@
   "description": "My custom react boilerplate, less time setting up and more time developing.",
   "scripts": {
     "start": "NODE_ENV=production node index.js",
-    "dev": "webpack-dev-server --mode development --open",
+    "dev": "webpack-dev-server --hot --mode development --content-base src --inline --host 0.0.0.0",
     "build": "webpack --mode production --config webpack.config.prod.js",
     "test": "rm -rf coverage; jest --coverage --config=jest.config.json",
     "test:watch": "jest --watch --coverage --config=jest.config.json",
@@ -12,7 +12,7 @@
     "nuke": "rm -rf node_modules && npm run clean",
     "precommit": "yarn run lint && yarn run test",
     "docker:build": "docker build -t app-ui .",
-    "docker:start": "docker run -it -p 8080:8080 --name app-ui"
+    "docker:start": "docker run -it -p 8080:8080 app-ui"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,10 @@
     "presets": [
       "env",
       "react"
+    ],
+    "plugins": [
+      "transform-class-properties",
+      "transform-object-rest-spread"
     ]
   },
   "eslintConfig": {
@@ -37,13 +41,21 @@
       "standard-react"
     ],
     "rules": {
-      "space-before-function-paren": [2, {
-        "anonymous": "always",
-        "named": "ignore",
-        "asyncArrow": "always"
-      }]
+      "space-before-function-paren": [
+        2,
+        {
+          "anonymous": "always",
+          "named": "ignore",
+          "asyncArrow": "always"
+        }
+      ]
     },
-    "env": { "jest": true }
+    "parser": "babel-eslint",
+    "env": {
+      "jest": true,
+      "browser": true,
+      "node": true
+    }
   },
   "eslintIgnore": [
     "dist"
@@ -59,7 +71,10 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.5",
     "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",

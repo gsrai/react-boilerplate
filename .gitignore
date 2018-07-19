@@ -1,6 +1,17 @@
 # Custom
 dist/
 
+# Other
+.DS_Store
+lib
+log
+.idea/
+static/dist/
+*.iml
+webpack-assets.json
+webpack-stats.json
+.yarnclean
+
 # Logs
 logs
 *.log

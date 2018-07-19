@@ -45,7 +45,7 @@ Step 2.a: Start the app
 yarn start
 ```
 
-Step 2.a: Build and run with docker
+Step 2.b: Build and run with docker
 
 ```
 yarn run docker:build
