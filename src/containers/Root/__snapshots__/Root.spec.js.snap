@@ -5,8 +5,12 @@ exports[`Component Rendering component should render correctly 1`] = `
   id="application-root"
 >
   <h1>
-    Using React 
-    16.4.1
+    <Greeter
+      greeting="Bonjour!"
+    />
+    , Using React 
+    16.4.2
   </h1>
+  <Counter />
 </div>
 `;
