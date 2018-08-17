@@ -1,5 +1,5 @@
 import qs from 'qs'
-import { set } from 'lodash'
+import set from 'lodash/set'
 
 export const getQueryParams = (params) => qs.parse(params)
 

@@ -16,7 +16,7 @@ class RepoList extends React.Component {
     const { loading, loadSuccess, loadError, reason, repos } = this.props
     return (
       <div>
-        <h1>Example</h1>
+        <h1 style={{textAlign: 'center'}}>Example</h1>
         <div>
           { loading &&
             'loading repositories...'
