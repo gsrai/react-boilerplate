@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component Rendering component should render correctly 1`] = `
+<div>
+  foo
+</div>
+`;
+
+exports[`Component Rendering component should render correctly when error 1`] = `
+<ErrorBoundary>
+  <h1>
+    Something went wrong.
+  </h1>
+</ErrorBoundary>
+`;

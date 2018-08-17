@@ -1,12 +1,18 @@
 const path = require('path')
-const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
+const DIST = path.resolve(__dirname, 'dist')
+const ENTRY = ['babel-polyfill', path.resolve(__dirname, './src/entry/index.js')]
+
 // Production webpack configuration
 const webpackConfig = {
-  entry: './src/entry/index.js',
+  entry: ENTRY,
+  output: {
+    path: DIST,
+    filename: '[name].bundle.js'
+  },
   module: {
     rules: [
       {
@@ -37,7 +43,7 @@ const webpackConfig = {
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css',
-      chunkFilename: '[id].[hash].css',
+      chunkFilename: '[id].[hash].css'
     })
   ]
 }

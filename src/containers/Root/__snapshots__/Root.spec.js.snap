@@ -12,5 +12,19 @@ exports[`Component Rendering component should render correctly 1`] = `
     16.4.2
   </h1>
   <Counter />
+  <nav>
+    <Link
+      replace={false}
+      to="/repolist"
+    >
+      Repo List
+    </Link>
+  </nav>
+  <div>
+    <Route
+      component={[Function]}
+      path="/repolist"
+    />
+  </div>
 </div>
 `;
