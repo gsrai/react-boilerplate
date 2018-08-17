@@ -78,8 +78,3 @@ There is a precommit hook to git which will run the linter and the unit tests.
 - SSR?
 - Sagas/Thunk/RxObservables
 - Mobx
-
-Up to date as of June 2018, god JS moves fast :p
-
-Babel 7 will be out soon
-Webpack 5 too...
