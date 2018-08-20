@@ -8,6 +8,14 @@ app.use(compression())
 
 app.use(express.static(path.join(__dirname, 'dist')))
 
+app.get('/health', (req, res) => {
+  const response = {
+    status: 'UP',
+    uptime: process.uptime()
+  }
+  res.status(200).json(response)
+})
+
 app.get('/*', (req, res) => {
   console.log(`serving request for path ${req.url}`)
   res.sendFile(path.join(__dirname, 'dist/index.html'), (err) => {

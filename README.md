@@ -68,13 +68,11 @@ There is a precommit hook to git which will run the linter and the unit tests.
 - Webpack 4 w/ hot loading + small modules with hash for browser caching in prod
 - babel 6
 - Enzyme & Jest w/ code coverage
+- React Router 4
+- Redux-Saga
 
 ##### To Do
-- move config files to single directory
-- make utils/helpers (ErrorBoundary) and config/properties file for app
 - handle static assets like svgs/favicons(ico)/csv etc
-- add react router
 - less, sass and stylized components
+- Mobx/Thunk/RxObservables
 - SSR?
-- Sagas/Thunk/RxObservables
-- Mobx
