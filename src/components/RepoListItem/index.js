@@ -18,7 +18,7 @@ const RepoListItem = ({ repo }) => {
 }
 
 RepoListItem.propTypes = {
-  repo: PropTypes.array
+  repo: PropTypes.object
 }
 
 export default RepoListItem

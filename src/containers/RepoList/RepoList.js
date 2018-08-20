@@ -6,10 +6,10 @@ import { connect } from 'react-redux'
 import { actions as repoListActions } from '../../reducers/RepoListReducer'
 import RepoListItem from '../../components/RepoListItem'
 
-class RepoList extends React.Component {
+export class RepoList extends React.Component {
   componentDidMount() {
     this.props.actions.loadRepoListInit()
-    this.props.actions.loadRepoList('preact')
+    this.props.actions.loadRepoList('react')
   }
 
   render() {

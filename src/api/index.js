@@ -20,7 +20,9 @@ export const getRepoList = async (queryParams, fetch = _fetch) => {
   try {
     const response = await fetch(url, opts)
     if (!response.ok) {
-      throw new Error(await response.json())
+      const err = await response.json()
+      console.error('Error: ', err)
+      return { error: err.message }
     }
     const json = await response.json()
     return (json && json.items) || []

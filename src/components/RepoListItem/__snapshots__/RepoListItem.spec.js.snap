@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component Rendering component should render correctly 1`] = `
+<div
+  className="repo-list-item"
+>
+  <div>
+    <a
+      href="https://github.com/facebook/react"
+      target="_blank"
+    >
+      facebook/react
+    </a>
+    🌟
+    <strong>
+      108963
+    </strong>
+  </div>
+  <p>
+    A declarative, efficient, and flexible JavaScript library for building user interfaces.
+  </p>
+</div>
+`;

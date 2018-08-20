@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component Rendering component should pass reason when there is an error 1`] = `
+<div>
+  <h1
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    Example
+  </h1>
+  <div>
+    A problem has occurred: cannot load repos
+  </div>
+</div>
+`;
+
+exports[`Component Rendering component should render connected component 1`] = `
+<RepoList
+  actions={
+    Object {
+      "loadRepoList": [Function],
+      "loadRepoListFailure": [Function],
+      "loadRepoListInit": [Function],
+      "loadRepoListSuccess": [Function],
+    }
+  }
+  loadError={false}
+  loadSuccess={false}
+  loading={false}
+  reason=""
+  repos={Array []}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
+        "notify": [Function],
+        "subscribe": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": [Function],
+    }
+  }
+/>
+`;
+
+exports[`Component Rendering component should render default 1`] = `
+<div>
+  <h1
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    Example
+  </h1>
+  <div />
+</div>
+`;
+
+exports[`Component Rendering component should render loading text when loading 1`] = `
+<div>
+  <h1
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    Example
+  </h1>
+  <div>
+    loading repositories...
+  </div>
+</div>
+`;
+
+exports[`Component Rendering component should render repo data when successfully loaded 1`] = `
+<div>
+  <h1
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    Example
+  </h1>
+  <div>
+    <RepoListItem
+      repo={
+        Object {
+          "description": "A declarative, efficient, and flexible JavaScript library for building user interfaces.",
+          "full_name": "facebook/react",
+          "html_url": "https://github.com/facebook/react",
+          "stargazers_count": 108963,
+        }
+      }
+    />
+  </div>
+</div>
+`;
