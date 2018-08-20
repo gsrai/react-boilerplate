@@ -4,7 +4,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const DIST = path.resolve(__dirname, 'dist')
-const ENTRY = path.resolve(__dirname, './src/entry/index.js')
+const ENTRY = ['babel-polyfill', path.resolve(__dirname, './src/entry/index.js')]
 
 const webpackConfig = {
   mode: 'development',
@@ -15,12 +15,14 @@ const webpackConfig = {
     overlay: true,
     hot: true,
     stats: 'errors-only',
-    host: '0.0.0.0'
+    host: '0.0.0.0',
+    historyApiFallback: true
   },
   entry: ENTRY,
   output: {
     path: DIST,
-    filename: '[name].bundle.js'
+    filename: '[name].bundle.js',
+    publicPath: '/'
   },
   module: {
     rules: [
