@@ -9,6 +9,7 @@ app.use(compression())
 app.use(express.static(path.join(__dirname, 'dist')))
 
 app.get('/*', (req, res) => {
+  console.log(`serving request for path ${req.url}`)
   res.sendFile(path.join(__dirname, 'dist/index.html'), (err) => {
     if (err) {
       console.error(`Something went wrong when handling ${req.url} - ${err}`)

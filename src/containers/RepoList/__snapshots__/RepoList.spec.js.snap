@@ -111,6 +111,7 @@ exports[`Component Rendering component should render repo data when successfully
   </h1>
   <div>
     <RepoListItem
+      key="0"
       repo={
         Object {
           "description": "A declarative, efficient, and flexible JavaScript library for building user interfaces.",

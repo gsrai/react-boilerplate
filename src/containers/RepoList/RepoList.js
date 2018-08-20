@@ -22,7 +22,7 @@ export class RepoList extends React.Component {
             'loading repositories...'
           }
           { loadSuccess &&
-            repos.map(repo => (<RepoListItem repo={repo} />))
+            repos.map((repo, i) => (<RepoListItem key={i} repo={repo} />))
           }
           { loadError &&
             'A problem has occurred: ' + reason
