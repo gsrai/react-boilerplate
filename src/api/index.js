@@ -25,7 +25,7 @@ export const getRepoList = async (queryParams, fetch = _fetch) => {
       return { error: err.message }
     }
     const json = await response.json()
-    return (json && json.items) || []
+    return json.items
   } catch (e) {
     console.error('Error: ', e.message)
     return {

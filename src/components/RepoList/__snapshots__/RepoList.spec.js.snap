@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`foo component should pass reason when there is an error 1`] = `
+<div>
+  <h1
+    className="repo-list__heading"
+  >
+    Example
+  </h1>
+  <div>
+    A problem has occurred: cannot load repos
+  </div>
+</div>
+`;
+
+exports[`foo component should render loading text when loading 1`] = `
+<div>
+  <h1
+    className="repo-list__heading"
+  >
+    Example
+  </h1>
+  <div>
+    loading repositories...
+  </div>
+</div>
+`;
+
+exports[`foo component should render repo data when successfully loaded 1`] = `
+<div>
+  <h1
+    className="repo-list__heading"
+  >
+    Example
+  </h1>
+  <div>
+    <RepoListItem
+      key="0"
+      repo={
+        Object {
+          "description": "A declarative, efficient, and flexible JavaScript library for building user interfaces.",
+          "full_name": "facebook/react",
+          "html_url": "https://github.com/facebook/react",
+          "stargazers_count": 108963,
+        }
+      }
+    />
+  </div>
+</div>
+`;
