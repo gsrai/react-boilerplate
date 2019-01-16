@@ -3,10 +3,15 @@ import React from 'react'
 import ErrorBoundary from './ErrorBoundary'
 
 const errMsg = 'Oops something went wrong!'
+const throwSomething = _ => { throw new Error(errMsg) }
 
 class ErrorComp extends React.Component {
   render() {
-    throw new Error(errMsg)
+    return (
+      <React.Fragment>
+        {throwSomething()}
+      </React.Fragment>
+    )
   }
 }
 

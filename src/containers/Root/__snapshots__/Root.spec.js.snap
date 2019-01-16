@@ -10,7 +10,7 @@ exports[`Component Rendering component should render correctly 1`] = `
         greeting="Bonjour!"
       />
       , Using React 
-      16.4.2
+      16.7.0
     </h1>
     <Counter />
     <nav>
