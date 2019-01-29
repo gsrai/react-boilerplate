@@ -5,9 +5,9 @@ import './Root.css'
 
 import ErrorBoundary from '../../utils/ErrorBoundary'
 
-import Counter from '../../components/Counter/Counter'
-import Greeter from '../../components/Greeter/Greeter'
-import RepoList from '../RepoList/RepoList'
+import Counter from '../../components/Counter'
+import Greeter from '../../components/Greeter'
+import RepoListContainer from '../RepoListContainer'
 
 const Root = (props) => (
   <div id='application-root'>
@@ -18,7 +18,7 @@ const Root = (props) => (
         <Link to={'/repolist'}>Repo List</Link>
       </nav>
       <div>
-        <Route path={'/repolist'} component={RepoList} />
+        <Route path={'/repolist'} component={RepoListContainer} />
       </div>
     </ErrorBoundary>
   </div>

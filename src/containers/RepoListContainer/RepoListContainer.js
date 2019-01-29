@@ -4,9 +4,9 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import { actions as repoListActions } from '../../reducers/RepoListReducer'
-import RepoListItem from '../../components/RepoListItem'
+import RepoList from '../../components/RepoList'
 
-export class RepoList extends React.Component {
+class RepoListContainer extends React.Component {
   componentDidMount() {
     this.props.actions.loadRepoListInit()
     this.props.actions.loadRepoList('react')
@@ -15,25 +15,20 @@ export class RepoList extends React.Component {
   render() {
     const { loading, loadSuccess, loadError, reason, repos } = this.props
     return (
-      <div>
-        <h1 style={{textAlign: 'center'}}>Example</h1>
-        <div>
-          { loading &&
-            'loading repositories...'
-          }
-          { loadSuccess &&
-            repos.map((repo, i) => (<RepoListItem key={i} repo={repo} />))
-          }
-          { loadError &&
-            'A problem has occurred: ' + reason
-          }
-        </div>
-      </div>
+      <React.Fragment>
+        <RepoList
+          loading={loading}
+          loadSuccess={loadSuccess}
+          loadError={loadError}
+          reason={reason}
+          repos={repos}
+        />
+      </React.Fragment>
     )
   }
 }
 
-RepoList.propTypes = {
+RepoListContainer.propTypes = {
   loading: PropTypes.bool.isRequired,
   loadSuccess: PropTypes.bool.isRequired,
   loadError: PropTypes.bool.isRequired,
@@ -56,4 +51,4 @@ export default connect(
   dispatch => ({
     actions: bindActionCreators(repoListActions, dispatch)
   })
-)(RepoList)
+)(RepoListContainer)

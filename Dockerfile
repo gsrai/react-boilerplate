@@ -5,13 +5,13 @@ ENV NODE_ENV=production
 WORKDIR /app
 
 COPY package.json .
-COPY yarn.lock .
+COPY package.lock .
 COPY index.js .
 COPY .npmrc .
 COPY dist ./dist
 
-RUN yarn install
+RUN npm install
 
 EXPOSE 8080
 
-CMD yarn start
+CMD npm run start
